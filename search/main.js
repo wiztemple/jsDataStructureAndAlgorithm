@@ -8,7 +8,7 @@ const numsArray = [];
 
 const linear = (numsArray, x) => numsArray.indexOf(x);
 
-console.log(linear([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10));
+// console.log(linear([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10));
 
 //  Binary Search
 const binarySearch = (arr, elem) => {
@@ -16,14 +16,27 @@ const binarySearch = (arr, elem) => {
   let endIndex = arr.length - 1;
   let midIndex = Math.ceil((startIndex + endIndex) / 2);
   
-  console.log(startIndex, midIndex, endIndex);
+  // console.log(startIndex, midIndex, endIndex);
   while (arr[midIndex] !== elem && startIndex <= endIndex) {
     if (elem < arr[midIndex]) endIndex = midIndex - 1;
     else startIndex = midIndex + 1;
     
     midIndex = Math.floor((startIndex + endIndex) / 2);
   }
-  console.log(startIndex, midIndex, endIndex);
+  // console.log(startIndex, midIndex, endIndex);
   return arr[midIndex] === elem ? midIndex : -1
 }
-console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 100));
+// console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 100));
+
+const naiveSearch = (long, short) => {
+  let count = 0;
+  for (let i = 0; i < long.length; i++) {
+    for (let j = 0; j < short.length; j++) {
+      if (short[j] !== long[i + j]) break;
+      if (j === short.length - 1) count++;
+    }
+  }
+  return count;
+}
+
+console.log(naiveSearch('infinitesimal things', 'init'));
