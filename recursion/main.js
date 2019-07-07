@@ -55,3 +55,6 @@ console.log(collectOdd([1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14]));
 //   console.log(odd);
 // }
 // console.log(oddVal([1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14]));
+
+// Day 3 - Search Algorithms
+ 
