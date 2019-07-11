@@ -70,3 +70,5 @@ const insertionSort = (arr) => {
   return arr;
 }
 console.log(insertionSort([3, 2, 5, 3, 2, 7, 8, 4, 5]));
+const data = Array.apply(null, { length: 10000 }).map(Function.call, Math.random)
+selectionSort(data);
