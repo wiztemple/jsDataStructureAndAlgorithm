@@ -29,6 +29,35 @@ Queue.prototype.enqueue = function (value) { return this.array.push(value) };
 // Implementation
 Queue.prototype.dequeue = function () { return this.array.shift() };
 
+
+// Unlike an array, items in a queue cannot be accessed via index
+// to access the nth last added node, you need to call dequeue n times
+// A buffer is needed to prevent modification to the original
+const queueAccessNthTopNode = (queue, n) => {
+  let bufferArray = queue.getBuffer();
+  if (n <= 0) throw 'error';
+
+  let bufferQueue = new Queue(bufferArray);
+  while (--n !== 0) {
+    bufferQueue.dequeue();
+  }
+  return bufferQueue.dequeue();
+} 
+
+// Search
+// You might need to search a queue to check if an element exist within a queue.
+// Again, this involves creating a buffer queue to prevent modification to the original
+const queueSearch = (queue, element) => {
+  let bufferArray = queue.getBuffer();
+
+  let bufferQueue = new Queue(bufferArray);
+  while (!bufferQueue.isEmpty()) {
+    if (bufferQueue.dequeue() == element) {
+      return true;
+    }
+  }
+  return false;
+}
 // Examples
 let queue2 = new Queue();
 queue2.enqueue(1);
